@@ -1,0 +1,22 @@
+# Copy to ./wsftp.toml or ~/.config/wsftp/config.toml (chmod 600).
+# Each table is a profile; pick one with --profile NAME. [default] is used
+# when --profile is not given. Command-line flags override these values.
+
+[default]
+host = "sftp.example.com"
+port = 22
+username = "deploy"
+key_file = "~/.ssh/id_ed25519"
+# key_passphrase = "..."        # or WSFTP_KEY_PASSPHRASE, or the prompt
+# password = "..."              # or WSFTP_PASSWORD, or the prompt
+# known_hosts = "~/.ssh/known_hosts"
+
+# Used when paths are not given on the command line:
+local_path = "./build"
+remote_path = "/var/www/site"
+
+[staging]
+host = "staging.example.com"
+username = "deploy"
+local_path = "./build"
+remote_path = "/srv/staging"
